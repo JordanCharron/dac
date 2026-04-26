@@ -5,7 +5,18 @@ build
 *.log
 .env
 .env.local
+*.tsbuildinfo
+
+# DB
 server/data/*.db
 server/data/*.db-*
+
+# Test/dev mail outbox (generated when SMTP not configured)
+server/data/outbox/
+
+# Uploads (user content)
 server/uploads/*
 !server/uploads/.gitkeep
+
+# Claude Code local-only settings
+.claude/settings.local.json
