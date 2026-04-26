@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 0 0% 100%;
+    --fg: 222 20% 12%;
+    --muted: 220 14% 96%;
+    --muted-fg: 220 9% 46%;
+    --card: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 0 66% 33%;
+    --accent: 0 66% 33%;
+    --accent-fg: 0 0% 100%;
+    --danger: 0 72% 51%;
+    --danger-fg: 0 0% 100%;
+    --success: 142 71% 40%;
+    --warning: 38 92% 50%;
+  }
+  .dark {
+    --bg: 222 20% 8%;
+    --fg: 220 14% 96%;
+    --muted: 222 16% 14%;
+    --muted-fg: 220 9% 66%;
+    --card: 222 18% 11%;
+    --border: 222 14% 18%;
+    --input: 222 14% 18%;
+    --ring: 0 66% 50%;
+    --accent: 0 66% 45%;
+    --accent-fg: 0 0% 100%;
+    --danger: 0 72% 55%;
+    --danger-fg: 0 0% 100%;
+    --success: 142 61% 50%;
+    --warning: 38 92% 55%;
+  }
+
+  * { border-color: hsl(var(--border)); }
+  html, body, #root { height: 100%; }
+  body {
+    background: hsl(var(--bg));
+    color: hsl(var(--fg));
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+           focus-visible:ring-offset-bg disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary { @apply btn bg-accent text-accent-fg hover:opacity-90; }
+  .btn-secondary { @apply btn bg-muted text-fg hover:bg-muted/70; }
+  .btn-ghost { @apply btn hover:bg-muted; }
+  .btn-danger { @apply btn bg-danger text-danger-fg hover:opacity-90; }
+  .btn-outline { @apply btn border border-border bg-transparent hover:bg-muted; }
+
+  .input {
+    @apply flex h-10 w-full rounded-lg border border-input bg-bg px-3 py-2 text-sm
+           placeholder:text-muted-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+           disabled:opacity-50;
+  }
+  .label { @apply text-sm font-medium text-fg; }
+  .card { @apply rounded-xl border bg-card shadow-sm; }
+  .badge { @apply inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium; }
+}

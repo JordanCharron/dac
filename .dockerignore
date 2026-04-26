@@ -1,0 +1,15 @@
+node_modules
+**/node_modules
+**/dist
+**/build
+**/.env
+**/.env.*
+.git
+.github
+.vscode
+.claude
+images
+server/data
+server/uploads
+**/*.log
+**/coverage
